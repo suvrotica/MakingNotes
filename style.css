@@ -1,0 +1,164 @@
+/* Basic styling */
+body {
+    font-family: 'Inter', sans-serif;
+    overscroll-behavior: contain; /* Prevent pull-to-refresh on touch devices */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent body scroll */
+    background-color: #f8f9fa; /* Light background for the page */
+    color: #212529; /* Default text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+}
+
+#canvas-container {
+    flex-grow: 1; /* Take remaining vertical space */
+    position: relative; /* Needed for absolute positioning of Konva stage */
+    overflow: hidden; /* Hide parts of stage outside container */
+    cursor: crosshair; /* Default drawing cursor */
+    background-color: #ffffff; /* Light mode canvas background */
+    touch-action: none; /* Disable browser default touch actions like scroll/zoom on the canvas */
+    transition: background-color 0.3s; /* Smooth theme transition */
+    border-top: 1px solid #dee2e6; /* Separator line */
+}
+
+/* Toolbar styling */
+.toolbar {
+    padding: 8px 12px; /* More padding */
+    background-color: #f1f3f5; /* Slightly different light background */
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 8px; /* Spacing between items */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth theme transition */
+}
+
+.tool-button,
+.color-button,
+.action-button {
+    padding: 6px 12px;
+    border: 1px solid #ced4da; /* Standard border color */
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #ffffff; /* White background for buttons */
+    font-size: 14px;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle button shadow */
+    color: #495057; /* Button text color */
+    display: inline-flex; /* Align icon/text nicely */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect for buttons */
+.tool-button:hover,
+.color-button:hover,
+.action-button:hover {
+    background-color: #e9ecef; /* Light gray hover */
+    border-color: #adb5bd;
+}
+
+/* Active state for tool and color buttons */
+.tool-button.active,
+.color-button.active {
+    background-color: #007bff; /* Primary blue for active */
+    border-color: #0056b3;
+    color: #ffffff; /* White text for active */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Inset shadow for active */
+}
+
+/* Specific styling for color buttons */
+.color-button {
+    width: 30px;
+    height: 30px;
+    padding: 0; /* Remove padding for color squares */
+    font-size: 0; /* Hide potential text */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Slightly more shadow for colors */
+}
+.color-button.active {
+     border: 2px solid #ffffff; /* White border when active */
+     box-shadow: 0 0 0 2px #007bff; /* Blue ring around the white border */
+}
+
+
+/* Separator line in toolbar */
+.separator {
+    width: 1px;
+    height: 25px;
+    background-color: #ced4da; /* Match border color */
+    margin: 0 5px;
+    transition: background-color 0.3s; /* Smooth theme transition */
+}
+
+/* --- Dark Mode Styles --- */
+body.dark {
+    background-color: #212529; /* Dark background */
+    color: #e9ecef; /* Light text */
+}
+
+body.dark #canvas-container {
+    background-color: #343a40; /* Darker canvas background */
+    border-top-color: #495057; /* Darker border */
+}
+
+body.dark .toolbar {
+    background-color: #343a40; /* Dark toolbar */
+    border-color: #495057; /* Darker border */
+}
+
+body.dark .tool-button,
+body.dark .color-button,
+body.dark .action-button {
+    background-color: #495057; /* Dark button background */
+    color: #e9ecef; /* Light button text */
+    border-color: #6c757d; /* Darker border */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Darker shadow */
+}
+
+body.dark .tool-button:hover,
+body.dark .color-button:hover,
+body.dark .action-button:hover {
+    background-color: #6c757d; /* Lighter dark hover */
+    border-color: #adb5bd;
+}
+
+/* Active state in dark mode */
+body.dark .tool-button.active,
+body.dark .color-button.active {
+    background-color: #0d6efd; /* Keep blue active color consistent */
+    border-color: #0a58ca;
+    color: #ffffff;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .color-button.active {
+     border: 2px solid #495057; /* Dark border when active */
+     box-shadow: 0 0 0 2px #0d6efd; /* Blue ring */
+}
+
+
+body.dark .separator {
+    background-color: #6c757d; /* Darker separator */
+}
+
+/* Style for error message display if JS fails */
+#canvas-container .error-message {
+    padding: 20px;
+    text-align: center;
+    color: #dc3545; /* Bootstrap danger color */
+    font-weight: bold;
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Red border */
+    border-radius: 4px;
+    margin: 20px;
+}
+
+body.dark #canvas-container .error-message {
+     color: #f8d7da; /* Light red text */
+     background-color: #dc3545; /* Red background */
+     border-color: #f5c6cb; /* Lighter red border */
+}

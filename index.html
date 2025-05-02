@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Handwriting Editor</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    </head>
+<body>
+    <div class="toolbar">
+        <button id="pencil-tool" class="tool-button active" title="Pencil">✏️</button>
+        <button id="eraser-tool" class="tool-button" title="Eraser">🧼</button>
+
+        <div class="separator"></div>
+
+        <button class="color-button" data-color="#333333" style="background-color: #333333;" title="Dark Charcoal"></button>
+        <button class="color-button" data-color="#555555" style="background-color: #555555;" title="Medium Charcoal"></button>
+        <button class="color-button" data-color="#777777" style="background-color: #777777;" title="Light Charcoal"></button>
+        <button class="color-button" data-color="#000000" style="background-color: #000000;" title="Black"></button>
+        <button class="color-button" data-color="#4a4a8a" style="background-color: #4a4a8a;" title="Dark Blue"></button>
+        <button class="color-button" data-color="#8a4a4a" style="background-color: #8a4a4a;" title="Dark Red"></button>
+
+        <div class="separator"></div>
+
+        <button id="save-local" class="action-button" title="Save Locally">💾 Save</button>
+        <button id="clear-canvas" class="action-button" title="Clear Canvas">🗑️ Clear</button>
+
+        <div class="separator"></div>
+
+        <button id="export-png" class="action-button" title="Export as PNG">PNG</button>
+        <button id="export-jpg" class="action-button" title="Export as JPG">JPG</button>
+        <button id="export-svg" class="action-button" title="Export as SVG">SVG</button>
+        <button id="export-html" class="action-button" title="Export as HTML (with SVG)">HTML</button>
+
+        <div class="separator"></div>
+
+        <button id="dark-mode-toggle" class="action-button" title="Toggle Dark Mode">🌙 Dark</button>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/konva@9.3.6/konva.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
